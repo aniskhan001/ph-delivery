@@ -26,11 +26,10 @@
                 <% if (user.local.email) { %>
                     <p>
                         <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
+                        Email: <input type="email" placeholder="<%= user.local.email %>">
+                        <!-- <strong>email</strong>: <%= user.local.email %><br> -->
+                        <button class="btn btn-default btn-sm">Update</button>
                     </p>
-                    
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
                 <% } else { %>
                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
                 <% } %>
@@ -103,11 +102,6 @@
 
             </div>
         </div>
-    </div>
-
-    <div class="text-center">
-        <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-        <p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
     </div>
 
 </div>
