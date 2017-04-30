@@ -1,0 +1,20 @@
+<form method="post" action="<%=sails.config.appUrl%>admin/create_link">
+  <div class="card">
+    <div class="card-header">
+      <strong>Create  </strong>Link
+    </div>
+    <div class="card-block">
+      <div class="form-group">
+        <label for="nf-email">Your Link</label>
+        <input type="url" required name="url" class="form-control" placeholder="Your Link">
+        <span class="help-block">Please enter your Link</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </div>
+</form>
+
+

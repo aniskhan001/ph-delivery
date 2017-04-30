@@ -1,0 +1,49 @@
+<div class="col-md-6">
+  <div class="card mx-4">
+    <div class="card-block p-4">
+
+      <form method="post" action="<%=sails.config.appUrl%>auth/make_register">
+        <h1>Register</h1>
+        <p class="text-muted">Create your account</p>
+        <div class="input-group mb-3">
+                              <span class="input-group-addon"><i class="icon-user"></i>
+                              </span>
+          <input type="text"  name="name" class="form-control" required placeholder="Full Name">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-addon">@</span>
+          <input type="email" name="email" required class="form-control" placeholder="Email">
+        </div>
+
+        <div class="input-group mb-3">
+                              <span class="input-group-addon"><i class="icon-lock"></i>
+                              </span>
+          <input type="password" class="form-control" name="password" required placeholder="Password">
+        </div>
+
+        <div class="input-group mb-4">
+                              <span class="input-group-addon"><i class="icon-lock"></i>
+                              </span>
+          <input type="password" class="form-control" name="password_again" required placeholder="Repeat password">
+        </div>
+
+        <button type="submit" class="btn btn-block btn-success">Create Account</button>
+      </form>
+    </div>
+    <div class="card-footer p-4 pace-inactive">
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-block btn-facebook" type="button">
+            <span>facebook</span>
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-block btn-twitter" type="button">
+            <span>twitter</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

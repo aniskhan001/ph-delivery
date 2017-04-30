@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
+  <meta name="author" content="Lukasz Holeczek">
+  <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
+  <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+
+  <title>500 Error</title>
+
+  <!-- Icons -->
+  <link href="<%=sails.config.appUrl%>css/font-awesome.min.css" rel="stylesheet">
+  <link href="<%=sails.config.appUrl%>css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Main styles for this application -->
+  <link href="<%=sails.config.appUrl%>css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="app flex-row align-items-center">
+
+<!--
+
+
+555555555555555555      000000000          000000000
+5::::::::::::::::5    00:::::::::00      00:::::::::00
+5::::::::::::::::5  00:::::::::::::00  00:::::::::::::00
+5:::::555555555555 0:::::::000:::::::00:::::::000:::::::0
+5:::::5            0::::::0   0::::::00::::::0   0::::::0
+5:::::5            0:::::0     0:::::00:::::0     0:::::0
+5:::::5555555555   0:::::0     0:::::00:::::0     0:::::0
+5:::::::::::::::5  0:::::0 000 0:::::00:::::0 000 0:::::0
+555555555555:::::5 0:::::0 000 0:::::00:::::0 000 0:::::0
+            5:::::50:::::0     0:::::00:::::0     0:::::0
+            5:::::50:::::0     0:::::00:::::0     0:::::0
+5555555     5:::::50::::::0   0::::::00::::::0   0::::::0
+5::::::55555::::::50:::::::000:::::::00:::::::000:::::::0
+ 55:::::::::::::55  00:::::::::::::00  00:::::::::::::00
+   55:::::::::55      00:::::::::00      00:::::::::00
+     555555555          000000000          000000000
+
+
+
+  This is the default "500: Server Error" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/500.js`
+
+  Sails considers a request in a "500: Server Error" state when
+  your app throws a catchable error (not inside of an asynchronous callback).
+
+  You can also trigger this response from one of your controllers or policies with:
+  `return res.serverError( e );`
+  (where `e` is an optional message, error, or array of errors to include in the response)
+
+-->
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="clearfix">
+        <h1 class="float-left display-3 mr-4">404</h1>
+        <h4 class="pt-3">Oops! You're lost.</h4>
+        <p class="text-muted">
+          <% if (typeof data!== 'undefined') { %>
+          <%= data %>
+          <% } else { %>
+          A team of highly trained sea bass is working on this as we speak.<br/>
+          If the problem persists, please <a href="mailto://info@ainixon.me">contact the system administrator</a> and inform them of the time that the error occured, and anything you might have done that may have caused the error.
+          <% } %>
+
+          Please <a href="<%=sails.config.appUrl%>auth/login">login</a>!
+        </p>
+        <p class="text-muted"> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap and necessary plugins -->
+<script src="<%=sails.config.appUrl%>bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/tether/dist/js/tether.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>

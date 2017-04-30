@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
+  <meta name="author" content="Lukasz Holeczek">
+  <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
+  <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+
+  <title>404 Error</title>
+
+  <!-- Icons -->
+  <link href="<%=sails.config.appUrl%>css/font-awesome.min.css" rel="stylesheet">
+  <link href="<%=sails.config.appUrl%>css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Main styles for this application -->
+  <link href="<%=sails.config.appUrl%>css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="app flex-row align-items-center">
+
+<!--
+
+
+       444444444       000000000            444444444
+      4::::::::4     00:::::::::00         4::::::::4
+     4:::::::::4   00:::::::::::::00      4:::::::::4
+    4::::44::::4  0:::::::000:::::::0    4::::44::::4
+   4::::4 4::::4  0::::::0   0::::::0   4::::4 4::::4
+  4::::4  4::::4  0:::::0     0:::::0  4::::4  4::::4
+ 4::::4   4::::4  0:::::0     0:::::0 4::::4   4::::4
+4::::444444::::4440:::::0 000 0:::::04::::444444::::444
+4::::::::::::::::40:::::0 000 0:::::04::::::::::::::::4
+4444444444:::::4440:::::0     0:::::04444444444:::::444
+          4::::4  0:::::0     0:::::0          4::::4
+          4::::4  0::::::0   0::::::0          4::::4
+          4::::4  0:::::::000:::::::0          4::::4
+        44::::::44 00:::::::::::::00         44::::::44
+        4::::::::4   00:::::::::00           4::::::::4
+        4444444444     000000000             4444444444
+
+
+
+  This is the default "404: Not Found" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/404.js`
+
+  Sails considers a request to be in a "404: Not Found" state when a user
+  requests a URL which doesn't match any of your app's routes or blueprints.
+
+  You can also trigger this response from one of your controllers or policies with:
+  `return res.notFound();`
+
+
+-->
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="clearfix">
+        <h1 class="float-left display-3 mr-4">404</h1>
+        <h4 class="pt-3">Oops! You're lost.</h4>
+        <p class="text-muted">
+          <% if (typeof data!== 'undefined') { %>
+          <%= data %>
+          <% } else { %>
+          The page you are looking for was not found.
+          <% } %>
+
+          Please <a href="<%=sails.config.appUrl%>auth/login">login</a>!
+        </p>
+        <p class="text-muted"> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap and necessary plugins -->
+<script src="<%=sails.config.appUrl%>bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/tether/dist/js/tether.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!--
+ * CoreUI - Open Source Bootstrap Admin Template
+ * @version v1.0.0-alpha.5
+ * @link http://coreui.io
+ * Copyright (c) 2017 creativeLabs Łukasz Holeczek
+ * @license MIT
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+  <meta name="author" content="Łukasz Holeczek">
+  <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
+  <link rel="shortcut icon" href="<%=sails.config.appUrl%>img/favicon.png">
+
+  <title>CoreUI - Open Source Bootstrap Admin Template</title>
+
+  <!-- Icons -->
+  <link href="<%=sails.config.appUrl%>css/font-awesome.min.css" rel="stylesheet">
+  <link href="<%=sails.config.appUrl%>css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Main styles for this application -->
+  <link href="<%=sails.config.appUrl%>css/style.css" rel="stylesheet">
+
+</head>
+
+<!-- BODY options, add following classes to body to change options
+
+// Header options
+1. '.header-fixed'					- Fixed Header
+
+// Sidebar options
+1. '.sidebar-fixed'					- Fixed Sidebar
+2. '.sidebar-hidden'				- Hidden Sidebar
+3. '.sidebar-off-canvas'		- Off Canvas Sidebar
+4. '.sidebar-minimized'			- Minimized Sidebar (Only icons)
+5. '.sidebar-compact'			  - Compact Sidebar
+
+// Aside options
+1. '.aside-menu-fixed'			- Fixed Aside Menu
+2. '.aside-menu-hidden'			- Hidden Aside Menu
+3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
+
+// Footer options
+1. '.footer-fixed'						- Fixed footer
+
+-->
+
+<body class="app header-fixed  aside-menu-fixed aside-menu-hidden sidebar-hidden">
+<header class="app-header navbar">
+  <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
+  <a class="navbar-brand" href="#"></a>
+  <ul class="nav navbar-nav d-md-down-none">
+
+
+    <li class="nav-item px-3">
+      <a class="nav-link" href="<%=sails.config.appUrl%>admin/dashboard">Dashboard</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" href="<%=sails.config.appUrl%>admin/create_link">Create a Link</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" href="<%=sails.config.appUrl%>admin/settings/">Settings</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="d-md-down-none"><%=req.session.userName%></span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+
+        <a class="dropdown-item" href="<%=sails.config.appUrl%>admin/settings/"><i class="fa fa-wrench"></i> Settings</a>
+        <a class="dropdown-item" href="<%=sails.config.appUrl%>auth/logout"><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>
+
+  </ul>
+</header>
+
+<div class="app-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="<%=sails.config.appUrl%>admin/dashboard"><i class="icon-speedometer"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%=sails.config.appUrl%>admin/create_link"><i class="icon-link"></i> Create a Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%=sails.config.appUrl%>admin/settings/"><i class="icon-settings"></i> Settings</a>
+        </li>
+
+
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item"><a href="#">Admin</a>
+      </li>
+      <li class="breadcrumb-item active">All Links</li>
+
+      <!-- Breadcrumb Menu-->
+    </ol>
+
+
+    <div class="container-fluid">
+      <div class="animated fadeIn">
+
+
+        <%- body %>
+
+
+
+      </div>
+
+    </div>
+    <!-- /.conainer-fluid -->
+  </main>
+
+
+
+</div>
+
+<footer class="app-footer">
+  <a href="http://coreui.io">CoreUI</a> © 2017 creativeLabs.
+        <span class="float-right">Powered by <a href="http://coreui.io">CoreUI</a>
+        </span>
+</footer>
+
+<!-- Bootstrap and necessary plugins -->
+<script src="<%=sails.config.appUrl%>bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/tether/dist/js/tether.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/pace/pace.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/moment/min/moment.min.js"></script>
+
+
+
+<!-- GenesisUI main scripts -->
+
+<script src="<%=sails.config.appUrl%>js/app.js"></script>
+
+
+
+</body>
+
+</html>

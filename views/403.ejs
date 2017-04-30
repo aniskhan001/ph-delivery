@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
+  <meta name="author" content="Lukasz Holeczek">
+  <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
+  <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+
+  <title>403 Error</title>
+
+  <!-- Icons -->
+  <link href="<%=sails.config.appUrl%>css/font-awesome.min.css" rel="stylesheet">
+  <link href="<%=sails.config.appUrl%>css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Main styles for this application -->
+  <link href="<%=sails.config.appUrl%>css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="app flex-row align-items-center">
+
+<!--
+
+
+       444444444       000000000      333333333333333
+      4::::::::4     00:::::::::00   3:::::::::::::::33
+     4:::::::::4   00:::::::::::::00 3::::::33333::::::3
+    4::::44::::4  0:::::::000:::::::03333333     3:::::3
+   4::::4 4::::4  0::::::0   0::::::0            3:::::3
+  4::::4  4::::4  0:::::0     0:::::0            3:::::3
+ 4::::4   4::::4  0:::::0     0:::::0    33333333:::::3
+4::::444444::::4440:::::0 000 0:::::0    3:::::::::::3
+4::::::::::::::::40:::::0 000 0:::::0    33333333:::::3
+4444444444:::::4440:::::0     0:::::0            3:::::3
+          4::::4  0:::::0     0:::::0            3:::::3
+          4::::4  0::::::0   0::::::0            3:::::3
+          4::::4  0:::::::000:::::::03333333     3:::::3
+        44::::::44 00:::::::::::::00 3::::::33333::::::3
+        4::::::::4   00:::::::::00   3:::::::::::::::33
+        4444444444     000000000      333333333333333
+
+
+
+  This is the default "403: Forbidden" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/403.js`
+
+  You can trigger this response from one of your controllers or policies with:
+  `return res.forbidden( msg );`
+  (where `msg` is an optional error message to include in the response)
+
+
+
+
+-->
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="clearfix">
+        <h1 class="float-left display-3 mr-4">404</h1>
+        <h4 class="pt-3">Oops! You're lost.</h4>
+        <p class="text-muted">
+          <% if (typeof data!== 'undefined') { %>
+          <%= data %>
+          <% } else { %>
+          You don't have permission to see the page you're trying to reach.
+          <% } %>
+
+          Please <a href="<%=sails.config.appUrl%>auth/login">login</a>!
+        </p>
+        <p class="text-muted"> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap and necessary plugins -->
+<script src="<%=sails.config.appUrl%>bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/tether/dist/js/tether.min.js"></script>
+<script src="<%=sails.config.appUrl%>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>
+
