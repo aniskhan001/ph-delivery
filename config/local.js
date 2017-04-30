@@ -82,6 +82,6 @@ module.exports = {
 
     environment: process.env.NODE_ENV || 'production',
 
-    appUrl: 'https://afternoon-temple-39380.herokuapp.com/'
+    appUrl: 'https://users-management.herokuapp.com/'
 
 };
