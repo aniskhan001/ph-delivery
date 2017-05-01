@@ -16,7 +16,7 @@ module.exports = {
    */
   register: function (req, res) {
     return res.view({
-      title: "Register Page",
+      title: "Register",
       layout: 'auth/layout_auth'
     });
   },
@@ -103,7 +103,7 @@ module.exports = {
     return res.view('auth/message',{
       messageDescription: "Your Account has been Created!",
       messageTitle: "Success!",
-      title: "Confirm Page",
+      title: "Registration Successfull",
       layout: 'auth/layout_auth'
     });
   },
@@ -127,6 +127,7 @@ module.exports = {
           }
           if (!userInfo) {
             //not found send message
+            console.log('user not found');
             return res.redirect(sails.config.appUrl+'auth/login');
           }
 
@@ -153,7 +154,7 @@ module.exports = {
       }
     }else{
       return res.view({
-        title: "Login Page",
+        title: "Login",
         layout: 'auth/layout_auth'
       });
     }

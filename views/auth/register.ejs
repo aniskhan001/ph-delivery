@@ -6,8 +6,7 @@
         <h1>Register</h1>
         <p class="text-muted">Create your account</p>
         <div class="input-group mb-3">
-                              <span class="input-group-addon"><i class="icon-user"></i>
-                              </span>
+          <span class="input-group-addon"><i class="icon-user"></i></span>
           <input type="text"  name="name" class="form-control" required placeholder="Full Name">
         </div>
 
@@ -17,19 +16,24 @@
         </div>
 
         <div class="input-group mb-3">
-                              <span class="input-group-addon"><i class="icon-lock"></i>
-                              </span>
+          <span class="input-group-addon"><i class="icon-lock"></i></span>
           <input type="password" class="form-control" name="password" required placeholder="Password">
         </div>
 
         <div class="input-group mb-4">
-                              <span class="input-group-addon"><i class="icon-lock"></i>
-                              </span>
+          <span class="input-group-addon"><i class="icon-lock"></i></span>
           <input type="password" class="form-control" name="password_again" required placeholder="Repeat password">
         </div>
 
         <button type="submit" class="btn btn-block btn-success">Create Account</button>
       </form>
+      <div class="row">
+        <div class="col-md-12">
+          <p></p>
+          <p class="text-center">Already have an account?</p>
+          <a href="<%=sails.config.appUrl%>auth/login" class="btn btn-block btn-primary">Login</a>
+        </div>
+      </div>
     </div>
     <div class="card-footer p-4 pace-inactive">
       <div class="row">
