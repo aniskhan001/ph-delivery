@@ -40,6 +40,10 @@ module.exports.routes = {
 
   '/admin/delete_link/:urlparts': {controller: "Admin", action: "delete_link"},
 
+  '/admin/delete_user/:userId': {controller: "Admin", action: "delete_user"},
+
+  '/admin/edit_user/:userId': {controller: "Admin", action: "edit_user"},
+
   '/admin/edit_link/:urlparts': {controller: "Admin", action: "edit_link"}
 
   /***************************************************************************

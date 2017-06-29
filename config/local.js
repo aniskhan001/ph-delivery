@@ -80,8 +80,8 @@ module.exports = {
    * 'development' environment.                                              *
    ***************************************************************************/
 
-    environment: process.env.NODE_ENV || 'production',
+    environment: process.env.NODE_ENV || 'development',
 
-    appUrl: 'https://users-management.herokuapp.com/'
+    appUrl: process.env.APP_URL || 'https://pointhacks-delivery.herokuapp.com/'
 
 };

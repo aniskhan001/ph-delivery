@@ -1,15 +1,60 @@
-
 <form method="post" action="<%=sails.config.appUrl%>admin/edit_link/<%=link.link_id%>">
   <div class="card">
     <div class="card-header">
       <strong>Edit  </strong>Link
     </div>
     <div class="card-block">
+
+      <div class="form-group">
+        <label for="nf-email">Link Name</label>
+        <input type="text" name="link_name" class="form-control" value="<%=link.link_name%>" placeholder="Your Link Name">
+      </div>
+
+      <div class="form-group">
+        <label for="nf-email">Link Slug</label>
+        <input type="text" required pattern="[a-zA-Z0-9-_=?]+" name="url-slug" class="form-control" placeholder="Link Slug" value="<%=link.link_id%>">
+
+        <%if (error != null) { %>
+          <br/>
+          <span class="help-block text-danger"><%=error%></span>
+          <% } %>
+      </div>
       <div class="form-group">
         <label for="nf-email">Your Link</label>
         <input type="url" required name="url" class="form-control" placeholder="Your Link" value="<%=link.original_link%>">
-        <span class="help-block">Please enter your Link</span>
       </div>
+
+
+      <div class="form-group">
+        <h6>Advanced Query Options</h6>
+        <div>
+          <div class="col-3 d-inline-block">
+            <label for="checkbox3">
+              <input type="checkbox"  <%= ( (typeof link.remove_qs !== 'undefined') && (link.remove_qs == 1) ) ? 'checked' : '' %> id="checkbox3" name="remove" value="1"> Remove
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="col-3 d-inline-block">
+            <label for="checkbox4">
+              <input type="checkbox" <%= ( (typeof link.passThrough !== 'undefined') && (link.passThrough == 1) ) ? 'checked' : '' %> id="checkbox4" name="passthrough" value="1"> Passthrough
+            </label>
+          </div>
+        </div>
+
+
+        <div>
+          <div class="col-3 d-inline-block">
+            <label for="checkbox5">
+              <input type="checkbox" id="checkbox5" name="hasoffers" <%= ( (typeof link.hasOffers !== 'undefined') && (link.hasOffers == 1) ) ? 'checked' : '' %> value="1"> HasOffers
+            </label>
+          </div>
+        </div>
+
+
+      </div>
+
+
     </div>
     <div class="card-footer">
       <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
@@ -19,3 +64,44 @@
 </form>
 
 
+<script>
+  window.onload = function (e) {
+    $(document).ready(function () {
+//      $('#exampleAccordion1').collapse('hide');
+
+      $('#checkbox5').on('change', function () {
+        console.log();
+
+
+        if($('#checkbox5').is(':checked')){
+          if($('#checkbox4').is(':checked')){
+
+          }else{
+            //show alert and remove
+            $('#checkbox5').prop('checked', false);
+            alert('Enable Passthrough to use HasOffers module')
+          }
+        }
+
+//
+//        if ($('#checkbox4').is(':checked') && $('#checkbox5').is(':checked')) {
+//          //
+//        } else {
+//          $('#checkbox5').prop('checked', false);
+//          alert('Enable Passthrough to use HasOffers module')
+//        }
+      });
+
+      $('#checkbox4').on('change', function () {
+        console.log();
+        if ($('#checkbox4').is(':checked') ) {
+          //
+        } else {
+          $('#checkbox5').prop('checked', false);
+        }
+      })
+
+    });
+  };
+
+</script>

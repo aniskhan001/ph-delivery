@@ -27,6 +27,11 @@ module.exports = {
     status:{
       type: 'int',
       defaultsTo: 0
+    },
+
+    admin:{
+      type: 'integer',
+      defaultsTo: 0
     }
 
   }

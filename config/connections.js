@@ -63,7 +63,7 @@ module.exports.connections = {
      //user: 'username', //optional
      //password: 'password', //optional
      //database: 'your_mongo_db_name_here' //optional
-      url      : 'mongodb://aniskhan001:123@ds159180.mlab.com:59180/heroku_7td1p4h2',
+      url      : process.env.MONGODB_URI,
       schema   : true
    },
 

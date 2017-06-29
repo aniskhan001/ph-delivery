@@ -139,6 +139,7 @@ module.exports = {
               req.session.userId = userInfo.id;
               req.session.loggedIn = true;
               req.session.userName = userInfo.name;
+              req.session.isAdmin = userInfo.admin;
 
               return res.redirect(sails.config.appUrl+'admin/dashboard');
             }else{

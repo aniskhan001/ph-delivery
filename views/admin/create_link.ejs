@@ -1,15 +1,60 @@
-<form method="post" action="<%=sails.config.appUrl%>admin/create_link">
+<form method="post" class="col-624 d-inline-block" action="<%=sails.config.appUrl%>admin/create_link">
   <div class="card">
     <div class="card-header">
-      <strong>Create  </strong>Link
+      <strong>Create </strong>Link
     </div>
     <div class="card-block">
+
       <div class="form-group">
-        <label for="nf-email">Your Link</label>
-        <input type="url" required name="url" class="form-control" placeholder="Your Link">
-        <span class="help-block">Please enter your Link</span>
+        <label for="nf-email">Link Name</label>
+        <input type="text" name="link_name" class="form-control" placeholder="Your Link Name">
       </div>
+
+      <div class="form-group">
+        <label for="nf-email">Link Slug</label>
+        <input type="text" required pattern="[a-zA-Z0-9-_=?]+" name="url-slug" class="form-control" placeholder="Link Slug" value="">
+
+        <%if (error != null) { %>
+          <br/>
+          <span class="help-block text-danger"><%=error%></span>
+          <% } %>
+      </div>
+
+      <div class="form-group">
+        <label for="nf-email">Destination URL</label>
+        <input type="url" required name="url" class="form-control" placeholder="Destination URL">
+      </div>
+
+      <div class="form-group">
+        <h6>Advanced Query Options</h6>
+        <div>
+          <div class="col-3 d-inline-block">
+            <label for="checkbox3">
+              <input type="checkbox" id="checkbox3" name="remove" value="1"> Remove
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-3 d-inline-block">
+            <label for="checkbox4">
+              <input type="checkbox" id="checkbox4" name="passthrough" value="1"> Passthrough
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-3 d-inline-block">
+            <label for="checkbox5">
+              <input type="checkbox" id="checkbox5" name="hasoffers" value="1"> HasOffers
+            </label>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
     <div class="card-footer">
       <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
       <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
@@ -18,3 +63,64 @@
 </form>
 
 
+<form method="post" class="col-624 d-inline-block" enctype="multipart/form-data" action="<%=sails.config.appUrl%>admin/load_csv">
+  <div class="card">
+    <div class="card-header">
+      <strong>Upload </strong>CSV
+    </div>
+    <div class="card-block">
+
+      <div class="form-group">
+        <label for="nf-email">Select The File</label>
+        <input type="file" required name="csv_file" class="form-control" placeholder="Link Slug">
+      </div>
+
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  window.onload = function (e) {
+    $(document).ready(function () {
+//      $('#exampleAccordion1').collapse('hide');
+
+      $('#checkbox5').on('change', function () {
+        console.log();
+
+
+        if($('#checkbox5').is(':checked')){
+          if($('#checkbox4').is(':checked')){
+
+          }else{
+            //show alert and remove
+            $('#checkbox5').prop('checked', false);
+            alert('Enable Passthrough to use HasOffers module')
+          }
+        }
+
+//
+//        if ($('#checkbox4').is(':checked') && $('#checkbox5').is(':checked')) {
+//          //
+//        } else {
+//          $('#checkbox5').prop('checked', false);
+//          alert('Enable Passthrough to use HasOffers module')
+//        }
+      });
+
+      $('#checkbox4').on('change', function () {
+        console.log();
+        if ($('#checkbox4').is(':checked') ) {
+          //
+        } else {
+          $('#checkbox5').prop('checked', false);
+        }
+      })
+
+    });
+  };
+
+</script>

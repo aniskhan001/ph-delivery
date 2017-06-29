@@ -29,6 +29,6 @@ module.exports.models = {
   ***************************************************************************/
   //todo: change this
   // migrate: 'alter'
-   migrate: 'safe'
+  migrate: 'safe'
 
 };

@@ -1,91 +1,151 @@
 <div class="row">
+
+  <div class="col-lg-12 contain-spin">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+
+
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Links
+
+
       </div>
       <div class="card-block">
         <table class="table table-striped">
           <thead>
-          <tr>
-            <th>Short Links</th>
-            <th>Main Link</th>
-            <th>Created</th>
-            <th>Action</th>
-          </tr>
+            <tr>
+              <th>Link Title</th>
+              <th>Short Links</th>
+              <th>Main Link</th>
+              <th>Created</th>
+              <th>Redirects</th>
+              <th>Action</th>
+            </tr>
           </thead>
           <tbody>
-          <% for(var i=0; i < userLinks.length; i++) { %>
-          <tr>
-            <td>
+            <% for(var i = 0; i < userLinks.length; i++) { %>
+              <tr>
+                <td>
+                  <%= userLinks[i].link_name %>
+                </td>
+                <td>
 
-              <a href="<%= sails.config.appUrl+userLinks[i].link_id %>">
-                <%= sails.config.appUrl+userLinks[i].link_id %>
-              </a>
+                  <a target="_blank" href="<%= sails.config.appUrl + userLinks[i].link_id %>">
+                    <%= sails.config.appUrl + userLinks[i].link_id %>
+                  </a>
 
-            </td>
-            <td><%= userLinks[i].original_link %></td>
-            <td class="conver-time" ><%= userLinks[i].createdAt %></td>
-            <td>
+                </td>
+                <td>
+                  <%= userLinks[i].original_link %>
+                </td>
+                <td class="conver-time">
+                  <%= userLinks[i].createdAt %>
+                </td>
+                <td>
+                  <span class="counter-me" link-e="<%= userLinks[i].id %>">0</span>
+                </td>
+                <td>
 
 
-              <a href="<%= sails.config.appUrl+"admin/edit_link/"+userLinks[i].link_id %>" class="btn btn-link  btn-sm">
-                <i class="fa fa-pencil"></i>&nbsp; Edit
-              </a>
-              <a href="<%= sails.config.appUrl+"admin/delete_link/"+userLinks[i].link_id %>" class="btn btn-link  btn-sm">
-                <i class="fa fa-remove"></i>&nbsp; Delete
-              </a>
+                  <a href="<%= sails.config.appUrl + "admin/edit_link/" + userLinks[i].link_id %>" class="btn btn-link  btn-sm">
+                    <i class="fa fa-pencil"></i>&nbsp; Edit
+                  </a>
+                  <a href="<%= sails.config.appUrl + "admin/delete_link/" + userLinks[i].link_id %>" class="btn btn-link delt-me  btn-sm">
+                    <i class="fa fa-remove"></i>&nbsp; Delete
+                  </a>
 
-            </td>
-          </tr>
-          <% } %>
-
+                </td>
+              </tr>
+              <% } %>
 
           </tbody>
         </table>
-        <ul class="pagination pace-inactive">
-          <li class="page-item"><a class="page-link" href="#">Prev</a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="#">1</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">4</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
 
 
-
-        <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-danger" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Modal title</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>One fine body…</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
+        
 
       </div>
     </div>
   </div>
   <!--/.col-->
 </div>
+
+
+
+<script>
+  var baseUrl = "<%= sails.config.appUrl %>";
+  window.onload = function (e) {
+    $(document).ready(function () {
+
+      $('.delt-me').click(function(e){
+        e.preventDefault();
+        var here = $(this);
+        var linkInfo = here.attr('href');
+
+        $('#delete-link-button').attr('href', linkInfo);
+        $('#dangerModal').modal('show');
+
+      });
+
+
+      $('.counter-me').each(function(){ 
+        var here = $(this);
+        var linkId = here.attr('link-e');
+        $.get( baseUrl+"admin/link_counter?link_id="+linkId, function( data ) {
+          console.log(data);
+          console.log(data.totalCount);
+          here.text(data.totalCount);
+        });
+       });
+
+
+
+      var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+        }
+      };
+
+      if (getUrlParameter('reload') == 1) {
+        $('.contain-spin').show();
+        setTimeout(
+          function () {
+            window.location.href = baseUrl + "admin/dashboard";
+          }, 5000);
+      }
+
+
+
+      $('#ccyear').on('change', function () {
+        var HerVal = $(this).val();
+        window.location.href = baseUrl + "admin/dashboard?limit=" + HerVal;
+      });
+
+      $('.pager-met .page-link').click(function (e) {
+        e.preventDefault();
+        var pageme = $(this).attr('var-item');
+        var HerVal = $('#ccyear option:selected').val();
+
+        window.location.href = baseUrl + "admin/dashboard?limit=" + HerVal + "&page_no=" + pageme;
+      })
+
+
+
+    });
+  };
+
+</script>

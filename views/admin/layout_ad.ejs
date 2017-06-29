@@ -35,6 +35,13 @@
     <li class="nav-item px-3">
       <a class="nav-link" href="<%=sails.config.appUrl%>admin/create_link">Create a Link</a>
     </li>
+
+    <% if(req.session.isAdmin == 1) {%>
+    <li class="nav-item px-3">
+      <a class="nav-link" href="<%=sails.config.appUrl%>admin/manage_user">Manage User</a>
+    </li>
+    <% } %>
+
     <li class="nav-item px-3">
       <a class="nav-link" href="<%=sails.config.appUrl%>admin/settings/">Settings</a>
     </li>
@@ -66,6 +73,13 @@
         <li class="nav-item">
           <a class="nav-link" href="<%=sails.config.appUrl%>admin/create_link"><i class="icon-link"></i> Create a Link</a>
         </li>
+
+        <% if(req.session.isAdmin == 1) {%>
+        <li class="nav-item">
+          <a class="nav-link" href="<%=sails.config.appUrl%>admin/manage_user"><i class="icon-link"></i>Manage User</a>
+        </li>
+        <% } %>
+
         <li class="nav-item">
           <a class="nav-link" href="<%=sails.config.appUrl%>admin/settings/"><i class="icon-settings"></i> Settings</a>
         </li>
@@ -100,6 +114,30 @@
       </div>
 
     </div>
+
+
+    <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-danger" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Delete</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure to delete this item?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <a id="delete-link-button" class="btn btn-danger" href="">Delete</a>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
     <!-- /.conainer-fluid -->
   </main>
 

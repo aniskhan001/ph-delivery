@@ -13,6 +13,11 @@ module.exports = {
       required: true
     },
 
+    link_name:{
+      type: 'string',
+      required: false
+    },
+
     original_link:{
       type: 'string',
       required: true
@@ -22,6 +27,21 @@ module.exports = {
       type: 'string',
       required: true,
       unique: true
+    },
+
+    remove_qs: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    passThrough:{
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    hasOffers:{
+      type: 'integer',
+      defaultsTo: 0
     },
 
     status:{
